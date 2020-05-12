@@ -2,12 +2,17 @@ package com.davidChavess.mongo.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
-	private String nome;
+	private String name;
 	private String email;
 	
 	public User() {
@@ -16,7 +21,7 @@ public class User implements Serializable {
 	
 	public User(String id, String nome, String email) {
 		this.id = id;
-		this.nome = nome;
+		this.name = nome;
 		this.email = email;
 	}
 
@@ -29,11 +34,11 @@ public class User implements Serializable {
 	}
 
 	public String getNome() {
-		return nome;
+		return name;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.name = nome;
 	}
 
 	public String getEmail() {
@@ -71,7 +76,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+		return "User [id=" + id + ", nome=" + name + ", email=" + email + "]";
 	}
 	
 }
